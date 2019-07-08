@@ -10,12 +10,12 @@ public class Main {
                         Drink=new VendingMachine("Drink"),
                         Office=new VendingMachine("Office");
         
-        Snack   Chips=new Snack(36, Food.getId(), "Chips", 1.75),
-                ChocoBar=new Snack(36, Food.getId(),"Chocolate Bar", 1),
-                Pretzel=new Snack(30, Food.getId(), "Pretzel", 2);
+        Snack   Chips=new Snack(36, Food, "Chips", 1.75),
+                ChocoBar=new Snack(36, Food,"Chocolate Bar", 1),
+                Pretzel=new Snack(30, Food, "Pretzel", 2);
         
-        Snack   Soda=new Snack(24, Drink.getId(),"Soda",2.50),
-                Water=new Snack(20, Drink.getId(), "Water", 2.75);
+        Snack   Soda=new Snack(24, Drink,"Soda",2.50),
+                Water=new Snack(20, Drink, "Water", 2.75);
 
         
         Jane.buy(Soda.getCost()*3);

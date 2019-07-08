@@ -2,17 +2,17 @@ package snackBar;
 
 public class Snack{
     static private int maxID=0;
-    private int id, quantity, vendingID;
+    private int id, quantity;
     private String name;
     private double cost;
-
+    VendingMachine vendingMachine;
 
     public Snack() {
     }
 
-    public Snack(int quantity, int vendingID, String name, double cost) {
+    public Snack(int quantity, VendingMachine vendingMachine, String name, double cost) {
         this.quantity = quantity;
-        this.vendingID = vendingID;
+        this.vendingMachine = vendingMachine;
         this.name = name;
         this.cost = cost;
 
@@ -32,12 +32,12 @@ public class Snack{
         this.quantity = quantity;
     }
 
-    public int getVendingID() {
-        return this.vendingID;
+    public VendingMachine getVendingMachine() {
+        return this.vendingMachine;
     }
 
-    public void setVendingID(int vendingID) {
-        this.vendingID = vendingID;
+    public void setVendingMachine(VendingMachine vendingMachine) {
+        this.vendingMachine = vendingMachine;
     }
 
     public String getName() {
@@ -58,13 +58,10 @@ public class Snack{
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", quantity='" + getQuantity() + "'" +
-            ", vendingID='" + getVendingID() + "'" +
-            ", name='" + getName() + "'" +
-            ", cost='" + getCost() + "'" +
-            "}";
+        return  "Snack: "+name+"\n"+
+                "Located in: "+vendingMachine.getName()+"\n"+
+                "With "+quantity+" remaining\n"+
+                "And a total value of: $"+quantity*cost+"\n";
     }
 
     public void decrement(){
