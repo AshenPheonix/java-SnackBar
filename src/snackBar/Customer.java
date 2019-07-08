@@ -27,13 +27,35 @@ public class Customer{
     public void cash(double add){
         cash+=add;
     }
-    
+
     public void buy(double cost){
         if(cost>cash){
             System.out.println("Could not buy, not enough money");
         }else{
             cash-=cost;
             System.out.println(name+" used $"+cost+" and now has "+cash);
+        }
+    }
+
+    public void buy (Snack snack){
+        if(snack.getCost()>cash){
+            System.out.println("Can't buy, not enough money");
+        }else{
+            cash-=snack.getCost();
+            System.out.println(name+" use $"+snack.getCost()+" and now has $"+cash);
+            snack.decrement();
+            System.out.println(snack.getName()+" remaining :"+snack.getQuantity());
+        }
+    }
+
+    public void buy (Snack snack,int amount){
+        if(snack.getCost()*amount>cash){
+            System.out.println("Can't buy, not enough money");
+        }else{
+            cash-=snack.getCost()*amount;
+            System.out.println(name+" use $"+snack.getCost()*amount+" and now has $"+cash);
+            snack.decrement(amount);
+            System.out.println(snack.getName()+" remaining :"+snack.getQuantity());
         }
     }
 }

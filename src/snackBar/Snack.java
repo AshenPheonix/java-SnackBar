@@ -10,20 +10,18 @@ public class Snack{
     public Snack() {
     }
 
-    public Snack(int id, int quantity, int vendingID, String name, double cost) {
-        this.id = id;
+    public Snack(int quantity, int vendingID, String name, double cost) {
         this.quantity = quantity;
         this.vendingID = vendingID;
         this.name = name;
         this.cost = cost;
+
+        maxID++;
+        this.id = maxID;
     }
 
     public int getId() {
         return this.id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getQuantity() {
@@ -58,31 +56,6 @@ public class Snack{
         this.cost = cost;
     }
 
-    public Snack id(int id) {
-        this.id = id;
-        return this;
-    }
-
-    public Snack quantity(int quantity) {
-        this.quantity = quantity;
-        return this;
-    }
-
-    public Snack vendingID(int vendingID) {
-        this.vendingID = vendingID;
-        return this;
-    }
-
-    public Snack name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public Snack cost(double cost) {
-        this.cost = cost;
-        return this;
-    }
-
     @Override
     public String toString() {
         return "{" +
@@ -94,4 +67,10 @@ public class Snack{
             "}";
     }
 
+    public void decrement(){
+        quantity--;
+    }
+    public void decrement(int amount) {
+        quantity-=amount;
+    }
 }
